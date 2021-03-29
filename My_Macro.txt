@@ -49,38 +49,31 @@ const     int mod2 = 				998244353;
 #define   fed(a, b, c) 				for (ll a = c; a >= b; --a) //for any particular range
 #define   fs(a, b) for 				(auto &a : b)               //for loop shortcut
 
-inline string IntToString(ll a)
-{
+inline string IntToString(ll a) {
     ostringstream str1;
     str1 << a;
     string geek = str1.str();
     return geek;
 }
 
-inline ll StringToInt(string a)
-{
+inline ll StringToInt(string a) {
     stringstream geek(a);
     ll x = 0;
     geek >> x;
     return x;
 }
 
-inline ll gcd(ll a, ll b)
-{
+inline ll gcd(ll a, ll b) {
     if (b == 0)
-    {
         return a;
-    }
     return gcd(b, a % b);
 }
 
-inline ll lcm(ll a, ll b)
-{
+inline ll lcm(ll a, ll b) {
     return (a * b) / gcd(a, b);
 }
 
-inline ll power(ll x, ll y)
-{
+inline ll power(ll x, ll y) {
     ll temp;
     if (y == 0)
         return 1;
@@ -91,20 +84,16 @@ inline ll power(ll x, ll y)
         return x * temp * temp;
 }
 
-inline ll sumDigits(ll n)
-{
+inline ll sumDigits(ll n) {
     return n == 0 ? 0 : n % 10 + sumDigits(n / 10);
 }
 
-inline bool isprime(ll n)
-{
+inline bool isprime(ll n) {
     vector<bool> prime(n + 1, true);
     // ll prime[n + 1];
     // memset(prime, true, sizeof(prime));
-    for (ll p = 2; p * p <= n; p++)
-    {
-        if (prime[p] == true)
-        {
+    for (ll p = 2; p * p <= n; p++) {
+        if (prime[p] == true) {
             for (ll i = p * p; i <= n; i += p)
                 prime[i] = false;
         }
@@ -117,8 +106,7 @@ inline bool isprime(ll n)
         return false;
 }
 
-inline bool ispalin(string num)
-{
+inline bool ispalin(string num) {
     string t = num;
     reverse(t.begin(), t.end());
     if (t == num)
@@ -126,17 +114,13 @@ inline bool ispalin(string num)
     return false;
 }
 
-inline void primeFactors(ll n)
-{
-    while (n % 2 == 0)
-    {
+inline void primeFactors(ll n) {
+    while (n % 2 == 0) {
         printf("%d ", 2);
         n = n / 2;
     }
-    for (ll i = 3; i <= sqrt(n); i = i + 2)
-    {
-        while (n % i == 0)
-        {
+    for (ll i = 3; i <= sqrt(n); i = i + 2) {
+        while (n % i == 0) {
             printf("%lld ", i);
             n = n / i;
         }
@@ -145,23 +129,19 @@ inline void primeFactors(ll n)
         printf("%lld ", n);
 }
 
-inline ll fact(ll n)
-{
+inline ll fact(ll n) {
     if (n <= 1)
         return 1;
     return n * fact(n - 1);
 }
 
-inline ll ncr(ll n, ll r)
-{
+inline ll ncr(ll n, ll r) {
     ll p = 1, k = 1;
     if (n - r < r)
         r = n - r;
 
-    if (r != 0)
-    {
-        while (r)
-        {
+    if (r != 0) {
+        while (r) {
             p *= n;
             k *= r;
             ll m = gcd(p, k);
@@ -176,17 +156,13 @@ inline ll ncr(ll n, ll r)
     return p;
 }
 
-inline ll npr(ll n, ll r)
-{
+inline ll npr(ll n, ll r) {
     return fact(n) / fact(n - r);
 }
 
-inline void Natural_Divisors(ll n)
-{
-    for (ll i = 1; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
+inline void Natural_Divisors(ll n) {
+    for (ll i = 1; i <= sqrt(n); i++) {
+        if (n % i == 0) {
             if (n / i == i)
                 printf("%lld ", i);
 
@@ -196,13 +172,10 @@ inline void Natural_Divisors(ll n)
     }
 }
 
-inline ll countDivisors(ll n)
-{
+inline ll countDivisors(ll n) {
     ll cnt = 0;
-    for (ll i = 1; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
+    for (ll i = 1; i <= sqrt(n); i++) {
+        if (n % i == 0) {
             if (n / i == i)
                 cnt++;
 
@@ -213,40 +186,33 @@ inline ll countDivisors(ll n)
     return cnt;
 }
 
-inline bool isPerfectSquare(long double x)
-{
+inline bool isPerfectSquare(long double x) {
     long double sr = sqrt(x);
     return ((sr - floor(sr)) == 0);
 }
 
-inline ll Count_primeFactors(ll n)
-{
+inline ll Count_primeFactors(ll n) {
     ll cnt = 0;
-    while (n % 2 == 0)
-    {
+    while (n % 2 == 0) {
         // printf("%d ", 2);
         cnt++;
         n = n / 2;
     }
-    for (ll i = 3; i <= sqrt(n); i = i + 2)
-    {
-        while (n % i == 0)
-        {
+    for (ll i = 3; i <= sqrt(n); i = i + 2) {
+        while (n % i == 0) {
             // printf("%lld ", i);
             cnt++;
             n = n / i;
         }
     }
-    if (n > 2)
-    {
+    if (n > 2) {
         // printf("%lld ", n);
         cnt++;
     }
     return cnt;
 }
 
-// void checktimer()
-// {
+// void checktimer() {
 //     clock_t start, end;
 //     start = clock();
 //     //Put Down Your Code Here
@@ -257,8 +223,7 @@ inline ll Count_primeFactors(ll n)
 //          << " secs";
 // }
 
-// inline void OPEN()
-// {
+// inline void OPEN() {
 //     #ifdef ONLINE_JUDGE
 //         freopen("input.in", "r", stdin);
 //         freopen("output.in", "w", stdout);
@@ -269,17 +234,15 @@ inline ll Count_primeFactors(ll n)
 // vector<int> adj[N];
 // vector<bool> vis(N, false);
 
-inline void solve()
-{
+inline void solve() {
+    fast();
 }
 
-int main()
-{
+int main() {
     fast();
     // OPEN();
     // solve();
-    test
-    {
+    test {
         solve();
     }
 
